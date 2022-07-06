@@ -1,3 +1,7 @@
+.padd{
+  margin: 3rem;
+}
+
 html {
   line-height: 1.15;
   /* 1 */
@@ -816,14 +820,13 @@ button {
 }
 
 .s130 {
-  min-height: 100vh;
+  min-height: 50vh;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
   font-family: 'Poppins', sans-serif;
-  background: url("../images/Searchs_130.png");
-  background-position: bottom right;
+  background: url("../images/Searchs_130.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   padding: 15px;

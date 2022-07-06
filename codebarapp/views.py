@@ -19,4 +19,4 @@ def ajax(request):
         codebar = request.POST.get('Codebar')
         print(codebar)
         product_dict = client.get_product(str(codebar), locale='dz')['product']        
-        return JsonResponse({'ProductName':product_dict['product_name'], 'BarCode':product_dict['_id'], 'Brand': product_dict['brands']})
+        return JsonResponse({'ProductName': product_dict['product_name_fr'] if product_dict['product_name_fr']!='' else product_dict['product_name'], 'BarCode':product_dict['_id'], 'Brand': product_dict['brands'], 'Image': product_dict['image_url']})

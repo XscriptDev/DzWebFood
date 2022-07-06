@@ -13,6 +13,9 @@ function Retrieve(){
         dataType: 'JSON',
         success:function(data){
             console.log(data)
+        },
+        error:function () {
+            alert('CODE BARE Not found!, maybe you misstyped? check again');
         }
     })
 }
@@ -22,6 +25,10 @@ $( document ).ready(function() {
         $("form").submit(function() { return false; });
     });
     $(".test").click(Retrieve);
-    $(".test2").keypress(function(e) {e.preventDefault();})
-    
-    })
+    $(".test2").keypress(function(e) {
+        if(e.key == "Enter") {
+        e.preventDefault();
+        $(".test").click()
+                
+    }});
+})
