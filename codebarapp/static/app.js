@@ -17,19 +17,41 @@ $( document ).ready(function() {
             }, 
             dataType: 'JSON',
             success:function(data){
+                let p1='<div class="col"><div class="card padd" style="width: 35rem;" id="' + data.BarCode + '">'
+                let img = '<img src=' + data.Image + ' width = "300" height = "300" class="card-img-top" alt="...">'
+                let cbody = '<div class="card-body">'
+                let form1 = '<form action="/product/add" method="POST">'
+                let codebar = '<input type="hidden" id="codebar" name="codebar" value="'+ data.BarCode +'">'
+                let pname = '<label class="card-title" for="productname">Product Name:</label><input type="text" id="productname" name="productName" value="'+ data.ProductName +'"><br><br>'
+                let brand = '<label class="card-text" for="brand">Brand:</label><input type="text" id="brand" name="brand" value="' + data.Brand + '"><br><br>'
+                let ref = '<label class="card-text" for="ref">Reference:</label><input type="text" id="ref" name="ref" value="' + data.ref + '"><br><br>'
+
+                let closing = '<input type="submit" class="btn btn-primary" value="Submit"></form></div></div></div></div>'
+
                 console.log(data)
 
-                $(".jqadd").append('<div class="col"><div class="card padd" style="width: 35rem;"><img src="'+data.Image +'" class="card-img-top" width = "300" height = "300" alt="..."><div class="card-body"><h5 class="card-title">'+data.ProductName+'</h5><p class="card-text">Marque:'+data.Brand  +'</p><a href="#" class="btn btn-primary">SAVE</a></div>')
+                $(".jqadd").append(p1 + img + cbody + form1 + codebar + pname + brand+ ref + closing)
+                $(".test2").val("");
             },
             error:function (xhr, status, error) {
                 alert('CODE BARE Not found!, maybe you misstyped? check again');
+                
             }
         })
     });
     $(".test2").keypress(function(e) {
+        console.log(Array.from(e.code)[5])
         if(e.key == "Enter") {
-        e.preventDefault();
-        $(".test").click()
-                
-    }});
+            e.preventDefault();
+            $(".test").click()                
+        }
+        
+        if (parseInt(Array.from(e.code)[5]) >= 0 && parseInt(Array.from(e.code)[5]) <= 10){
+          e.preventDefault();
+          let s = $(".test2").val();
+          let n = Array.from(e.code)[5];
+          $(".test2").val(s + n);
+            }
+          
+    });
 })
