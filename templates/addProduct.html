@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+  {% load static %}
+  {% block content %}
+      <div class="row mt-4">
+        <div class="col-lg-9 col-12 mx-auto position-relative">
+          <div class="card">
+            <div class="card-header p-3 pt-2">
+              <div class="icon icon-lg icon-shape bg-gradient-dark shadow text-center border-radius-xl mt-n4 me-3 float-start">
+                <i class="material-icons opacity-10">event</i>
+              </div>
+              <h6 class="mb-0">New Project</h6>
+            </div>
+            <div class="card-body pt-2">
+              <form action="/product/add" method="post">
+                <div class="input-group input-group-dynamic">
+                  <label  for="projectName" class="form-label">Name</label>
+                  <input name="productName" type="text" class="form-control" id="projectName">
+                </div>
+                <div class="input-group input-group-dynamic">
+                  <label for="projectName" class="form-label">Brand</label>
+                  <input name="brand" type="text" class="form-control" id="projectName">
+                </div>
+                <div class="input-group input-group-dynamic">
+                  <label for="projectName" class="form-label">Ref</label>
+                  <input name="ref" type="text" class="form-control" id="projectName">
+                </div>
+                <div class="input-group input-group-dynamic">
+                  <label for="projectName" class="form-label">Barcode</label>
+                  {{form.codebar}}
+                </div>
+                
+                <div class="d-flex justify-content-end mt-4">
+                  <a href="/product/list" name="button" class="btn btn-light m-0">Cancel</a>
+                  <button type="submit" name="button" class="btn bg-gradient-dark m-0 ms-2">Create Project</button>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  {% endblock %}
