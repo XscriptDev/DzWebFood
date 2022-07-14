@@ -3,6 +3,7 @@ from .models import Product
 
 class ProductForm(forms.ModelForm):
  
+    codebar = forms.CharField(label = '', widget=forms.TextInput(attrs={'class':'form-control required','required':''}))
     # create meta class
     class Meta:
         # specify model to be used

@@ -20,7 +20,7 @@ $( document ).ready(function() {
                 let p1='<div class="col"><div class="card padd" style="width: 35rem;" id="' + data.BarCode + '">'
                 let img = '<img src=' + data.Image + ' width = "300" height = "300" class="card-img-top" alt="...">'
                 let cbody = '<div class="card-body">'
-                let form1 = '<form action="/product/add" method="POST">'
+                let form1 = '<form action="/product/addorupdate" method="POST">'
                 let codebar = '<input type="hidden" id="codebar" name="codebar" value="'+ data.BarCode +'">'
                 let pname = '<label class="card-title" for="productname">Product Name:</label><input type="text" id="productname" name="productName" value="'+ data.ProductName +'"><br><br>'
                 let brand = '<label class="card-text" for="brand">Brand:</label><input type="text" id="brand" name="brand" value="' + data.Brand + '"><br><br>'
